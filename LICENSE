@@ -1,3 +1,9 @@
+Copyright 2015 Matthew Flanagan
+
+Portions of README.md, Amazon playbook, common, ec2-security-group,
+genesis-amazon, ssh roles from Streisand (https://github.com/jlund/streisand)
+Copyright 2014-2015 Joshua Lund.
+
 GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
