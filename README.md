@@ -97,6 +97,13 @@ to work properly.
 The servers should be accessible using your SSH keys, and *admin* is used as the
 connecting user by default.
 
+### Obtain Permission ###
+Before you go ahead and start scanning the whole Internet with your Kali
+Linux server you need to get permission from your target *and* cloud provider. Most cloud
+providers have a form that must be completed and a few days turn-around:
+* [Amazon EC2 Penetration
+  Testing](http://aws.amazon.com/security/penetration-testing/)
+
 Upcoming Features
 -----------------
 * Native support for more cloud providers
