@@ -1,0 +1,13 @@
+---
+- name: Reconfigure SSH to only allow access using key-based authentication
+  lineinfile: dest=/etc/ssh/sshd_config 
+              regexp="^#?PasswordAuthentication"
+              line="PasswordAuthentication no"
+  notify: Restart SSH
+
+- name: Register the server's SSH fingerprints
+  command: ssh-keygen -lf /etc/ssh/{{ item }}
+  register: ssh_server_fingerprints
+  with_items:
+    - ssh_host_ecdsa_key.pub
+    - ssh_host_rsa_key.pub

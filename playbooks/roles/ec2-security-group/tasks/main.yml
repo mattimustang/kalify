@@ -1,0 +1,23 @@
+---
+- name: Open the SSH port in the EC2 security group
+  local_action:
+    module: ec2_group
+    name: "{{ aws_security_group }}"
+    description: Security group for Kalify
+    vpc_id: "{{ aws_vpc_id }}"
+    region: "{{ aws_region }}"
+    aws_access_key: "{{ aws_access_key }}"
+    aws_secret_key: "{{ aws_secret_key }}"
+    rules:
+      # SSH
+      # ---
+      - proto: tcp
+        from_port: "{{ ssh_port }}"
+        to_port: "{{ ssh_port }}"
+        cidr_ip: 0.0.0.0/0
+    rules_egress:
+      - proto: all
+        from_port: 1
+        to_port: 65535
+        cidr_ip: 0.0.0.0/0
+  when: open_ssh_port_only

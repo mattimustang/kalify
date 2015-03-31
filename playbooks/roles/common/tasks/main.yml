@@ -1,0 +1,22 @@
+---
+# Set default variables
+- include: set-default-variables.yml
+
+- name: Ensure the APT cache is up to date
+  apt: update_cache=yes
+       cache_valid_time=3600
+
+- name: Upgrade the base Kali Linux
+  apt: upgrade=dist
+
+- name: restart machine
+  command: shutdown -r now "Ansible updates triggered"
+  async: 0
+  poll: 0
+  ignore_errors: true
+
+- name: waiting for the server to come back
+  local_action: wait_for host={{ kalify_ipv4_address }}
+                port=22
+                state=started
+  sudo: false

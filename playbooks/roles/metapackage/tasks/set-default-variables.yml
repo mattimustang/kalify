@@ -1,0 +1,4 @@
+---
+- name: Set the kali_metapackage variable to the value provided by a 'genesis' role if one is defined
+  set_fact: kali_metapackage="{{ hostvars['127.0.0.1']['kali_metapackage'] }}"
+  when: hostvars['127.0.0.1']['kali_metapackage'] is defined

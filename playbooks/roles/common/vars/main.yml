@@ -1,0 +1,3 @@
+---
+kalify_common_packages:
+  - curl

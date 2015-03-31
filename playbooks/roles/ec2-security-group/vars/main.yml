@@ -1,0 +1,2 @@
+---
+aws_security_group: "kalify-{{ aws_instance_name }}"

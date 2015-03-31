@@ -1,0 +1,12 @@
+---
+# Fix expired GPG Keys and install python for ansible
+- name: Remove APT indexes
+  raw: rm -rf /var/lib/apt/lists
+- name: Update the package indexes
+  raw: apt-get update
+- name: Fix the Kali GPG Keys
+  raw: apt-get -y --force-yes install kali-archive-keyring
+- name: Update the package indexes again
+  raw: apt-get update
+- name: Install python for ansible
+  raw: apt-get -y install python

@@ -1,0 +1,6 @@
+#!/bin/sh
+echo
+echo " K A L I F Y"
+echo
+
+ansible-playbook playbooks/amazon.yml

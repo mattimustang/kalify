@@ -1,0 +1,6 @@
+---
+# Set default variables
+- include: set-default-variables.yml
+
+- name: Installing Kali Linux metapackage
+  apt: name={{ kali_metapackage }}

@@ -1,0 +1,12 @@
+---
+aws_kali_virginia_ami_id: "ami-42fa462a"
+aws_kali_oregon_ami_id: "ami-3bc5880b"
+aws_kali_california_ami_id: "ami-5f73791a"
+aws_kali_frankfurt_ami_id: "ami-aab587b7"
+aws_kali_ireland_ami_id: "ami-2e278559"
+aws_kali_signapore_ami_id: "ami-de2d0b8c"
+aws_kali_sydney_ami_id: "ami-cfc0a2f5"
+aws_kali_tokyo_ami_id: "ami-59556158"
+aws_kali_sao_paulo_ami_id: "ami-1325900e"
+
+aws_instance_type: "t1.micro"

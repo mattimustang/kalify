@@ -1,0 +1,17 @@
+[localhost]
+127.0.0.1 ansible_python_interpreter=python
+
+# Uncomment the following lines and update the IP address if you would
+# like to use Kalify to configure a server that is already running
+# (e.g. a server at a provider not natively supported by Kalify).
+#
+# Multiple servers can be configured simultaneously if multiple IP
+# addresses are defined.
+#
+# If you already have SSH fingerprints for the hosts you are configuring
+# (e.g. using `ssh-keyscan`) then you should also comment out the
+# 'host_key_checking = False' line in the ansible.cfg file. That setting
+# is only sensible and convenient when connecting to a brand-new host.
+#
+#[kalify-host]
+#255.255.255.255
