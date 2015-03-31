@@ -77,8 +77,7 @@ to work properly.
     these commands to make sure it can find the necessary libraries:
 
             mkdir -p ~/Library/Python/2.7/lib/python/site-packages
-            echo '/usr/local/lib/python2.7/site-packages'
-> ~/Library/Python/2.7/lib/python/site-packages/homebrew.pth
+            echo '/usr/local/lib/python2.7/site-packages' > ~/Library/Python/2.7/lib/python/site-packages/homebrew.pth
 
 ### Execution ###
 1. Clone the Kalify repository and enter the directory.
@@ -96,8 +95,7 @@ to work properly.
         ssh admin@[ip address]
 
 The servers should be accessible using your SSH keys, and *admin* is used as the
-connecting user by default (though this is simple to change by updating the
-kalify.yml file or ansible.cfg file).
+connecting user by default.
 
 Upcoming Features
 -----------------
