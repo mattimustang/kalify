@@ -9,4 +9,5 @@ aws_kali_sydney_ami_id: "ami-cfc0a2f5"
 aws_kali_tokyo_ami_id: "ami-59556158"
 aws_kali_sao_paulo_ami_id: "ami-1325900e"
 
-aws_instance_type: "t1.micro"
+#aws_instance_type: "t1.micro"
+aws_instance_type: "m3.large"

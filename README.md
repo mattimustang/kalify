@@ -73,6 +73,12 @@ to work properly.
     * You can put your AWS API keys in
       [~/.boto](http://boto.readthedocs.org/en/latest/boto_config_tut.html) to
       save you entering them each time you run Kalify.
+    * Amazon does not allow penetration testing to be performed using
+      `m1.small` or `t1.micro` instances. However, for testing purposes I have
+      set the instance type to `t1.micro`. Edit
+      `playbooks/roles/genesis-amazon/defaults/main.yml` and change the
+      `aws_instance_type` setting to one of your choosing. I would recommend
+      starting with `m1.medium`.
   * If you are using a Homebrew-installed version of Python you should also run
     these commands to make sure it can find the necessary libraries:
 
@@ -106,9 +112,10 @@ providers have a form that must be completed and a few days turn-around:
 
 Upcoming Features
 -----------------
-* Native support for more cloud providers
+* Native support for more cloud providers and other Kali Linux installations.
 * More Ansible roles to get standard tools such as Metasploit, OpenVAS, Nexpose
-up and running.
+  up and running.
+* Easier customization of instance parameters without having to edit the roles.
 
 If there is something that you think Kalify should do, or if you find a bug
 in its documentation or execution, please file a report on the [Issue
