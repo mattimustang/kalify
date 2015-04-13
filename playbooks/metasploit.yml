@@ -1,0 +1,8 @@
+- name: Install Metasploit Framework
+# ==================================
+  hosts: kalify-host
+  remote_user: admin
+  sudo: yes
+  
+  roles:
+    - metasploit

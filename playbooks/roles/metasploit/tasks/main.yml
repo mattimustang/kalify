@@ -1,0 +1,17 @@
+---
+- name: Enabling PostgreSQL to start at boot
+  command: update-rc.d postgresql enable
+
+- name: Starting PostgreSQL
+  command: service postgresql start
+
+- name: Enabling Metasploit to start at boot
+  command: update-rc.d metasploit enable
+
+- name: Starting Metasploit
+  command: service metasploit start
+
+# TODO:
+# # Resolve postgresql port conflict with Nexpose
+# * Change /etc/postgresql/9.1/main/postgresql.conf port to 54321
+# * Change /opt/metasploit/apps/pro/ui/config/database.yml port to 54321
