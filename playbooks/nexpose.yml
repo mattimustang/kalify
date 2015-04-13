@@ -1,4 +1,4 @@
-- name: Install Nexpose vulenrability scanner
+- name: Install Nexpose vulnerability scanner
 # ===========================================
   hosts: kalify-host
   remote_user: admin
