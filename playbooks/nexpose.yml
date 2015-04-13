@@ -1,0 +1,8 @@
+- name: Install Nexpose vulenrability scanner
+# ===========================================
+  hosts: kalify-host
+  remote_user: admin
+  sudo: yes
+  
+  roles:
+    - nexpose

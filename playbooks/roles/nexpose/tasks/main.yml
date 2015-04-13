@@ -1,0 +1,38 @@
+---
+- name: Create Nexpose download directory
+  file: path={{ nexpose_download_dir }} owner=root group=root mode=0700 state=directory
+
+- name: Download Nexpose
+  get_url: url={{ nexpose_installer_url }} dest={{ nexpose_installer_path }} mode=0700
+
+- name: Download Nexpose MD5 sum
+  get_url: url={{ nexpose_installer_md5_url }} dest={{ nexpose_installer_md5_path }} mode=0400
+
+- name: Known Nexpose MD5 sum
+  command: awk '{print $1}' {{ nexpose_installer_md5_path }}
+  register: good_md5
+
+- name: Get Nexpose Installer MD5
+  stat: path={{ nexpose_installer_path }}
+  register: dl_md5
+
+- name: Compare MD5 sums
+  fail: msg="Downloaded file MD5 sum does no match"
+  when: good_md5.stdout != dl_md5.stat.md5
+
+- name: Generate the silent install response file
+  template: src=response.varfile.j2 dest={{ nexpose_installer_response_path }}
+
+- name: Installing Nexpose
+  command: "{{ nexpose_installer_path }} -q -Dinstall4j.suppressUnattendedReboot=true -varfile {{ nexpose_installer_response_path }}"
+  args:
+    creates: /opt/rapid7/nexpose
+
+- name: Enabling Nexpose to start at boot
+  command: update-rc.d nexposeconsole.rc enable
+
+- name: Starting Nexpose
+  command: service nexposeconsole.rc start
+
+# TODO:
+# * update ec2 security group to allow nexpose web port TCP/3780 inbound

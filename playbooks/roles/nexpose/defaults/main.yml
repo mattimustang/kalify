@@ -1,0 +1,9 @@
+---
+nexpose_installer_url: "http://download2.rapid7.com/download/NeXpose-v4/NeXposeSetup-Linux64.bin"
+nexpose_installer_md5_url: "http://download2.rapid7.com/download/NeXpose-v4/NeXposeSetup-Linux64.bin.md5sum"
+nexpose_download_dir: "/root/nexpose"
+nexpose_installer_path: "{{ nexpose_download_dir }}/NeXposeSetup-Linux64.bin"
+nexpose_installer_md5_path: "{{ nexpose_download_dir }}/NeXposeSetup-Linux64.bin.md5sum"
+nexpose_installer_response_path: "{{ nexpose_download_dir }}/response.varfile"
+nexpose_user: "nexadmin"
+nexpose_password: "nexadmin"

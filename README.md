@@ -110,10 +110,21 @@ providers have a form that must be completed and a few days turn-around:
 * [Amazon EC2 Penetration
   Testing](http://aws.amazon.com/security/penetration-testing/)
 
+Roles
+-----
+Kalify comes with a growing range of roles that can be used to installed and
+configure common security assessment tools. These roles can be applied to you
+newly built Kali Linux server by running:
+
+        ansible-playbook playbooks/<role>.yml
+
+The roles available are:
+- Nexpose
+
 Upcoming Features
 -----------------
 * Native support for more cloud providers and other Kali Linux installations.
-* More Ansible roles to get standard tools such as Metasploit, OpenVAS, Nexpose
+* More Ansible roles to get standard tools such as Metasploit, OpenVAS, ~~Nexpose~~
   up and running.
 * Easier customization of instance parameters without having to edit the roles.
 
