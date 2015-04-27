@@ -14,7 +14,7 @@ You may then connect to Nessus:
     https://<kali ip>:8834
 
 You may also use a SSH tunnel to connect to the Nessus server. The Amazon EC2
-instance will allow SSH by default e.g.
+Security Group allows SSH by default e.g.
 
     ssh -L 8834:localhost:8834 admin@<kali ip>
 
@@ -22,4 +22,4 @@ Then connect with your browser to:
 
     https://127.0.0.1:8834
 
-Once connected you can walk through the initial set up and activiation.
+Once connected you can walk through the initial set up and activation.
