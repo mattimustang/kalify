@@ -121,12 +121,15 @@ newly built Kali Linux server by running:
 The roles available are:
 - metasploit
 - nexpose
+- nessus
+
+See the README in each role's directory for more information.
 
 Upcoming Features
 -----------------
 * Native support for more cloud providers and other Kali Linux installations.
-* More Ansible roles to get standard tools such as ~~Metasploit~~, OpenVAS, ~~Nexpose~~
-  up and running.
+* More Ansible roles to get standard tools such as ~~Metasploit~~, OpenVAS,
+  ~~Nexpose~~, ~~Nessus~~ up and running.
 * Easier customization of instance parameters without having to edit the roles.
 
 If there is something that you think Kalify should do, or if you find a bug

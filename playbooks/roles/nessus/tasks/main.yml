@@ -1,0 +1,40 @@
+---
+- name: Create nessus download directory
+  file: path={{ nessus_download_dir }} owner=root group=root mode=0700 state=directory
+
+- name: Download nessus
+  get_url: url={{ nessus_installer_url }} dest={{ nessus_installer_path }} mode=0700
+
+- name: Download nessus MD5 sum
+  get_url: url={{ nessus_installer_md5_url }} dest={{ nessus_installer_md5_path }} mode=0400
+
+- name: Known nessus MD5 sum
+  command: awk "/{{ nessus_installer_file }}/ {print $2}" {{ nessus_installer_md5_path }} 
+  register: good_md5
+
+- name: Get nessus Installer MD5
+  stat: path={{ nessus_installer_path }}
+  register: dl_md5
+
+- name: Compare MD5 sums
+  fail: msg="Downloaded file MD5 sum does no match"
+  when: good_md5.stdout != dl_md5.stat.md5
+
+- name: Checking if nessus is installed
+  command: dpkg-query -W nessus
+  register: nessus_check_deb
+  failed_when: nessus_check_deb.rc > 1
+  changed_when: nessus_check_deb.rc == 1
+
+- name: Installing nessus
+  apt: deb="{{ nessus_installer_path }}" state=present
+  when: nessus_check_deb.rc == 1
+
+- name: Enabling nessus to start at boot
+  command: update-rc.d nessusd enable
+
+- name: Starting nessus
+  command: service nessusd start
+
+# TODO:
+# * update ec2 security group to allow nessus web port TCP/8834 inbound

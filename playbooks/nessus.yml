@@ -1,0 +1,8 @@
+- name: Install nessus vulnerability scanner
+# ==========================================
+  hosts: kalify-host
+  remote_user: admin
+  sudo: yes
+  
+  roles:
+    - nessus

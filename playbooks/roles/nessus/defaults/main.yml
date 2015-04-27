@@ -1,0 +1,12 @@
+---
+#nessus_installer_file: "Nessus-6.3.4-debian6_amd64.deb"
+nessus_installer_file: "Nessus-6.3.4-debian6_i386.deb"
+nessus_installer_url: "http://downloads.nessus.org/nessus3dl.php?file={{ nessus_installer_file }}&licence_accept=yes&t=f8cab5bad67ef21de4196bee59edf55f"
+nessus_md5_file: "MD5.asc"
+nessus_installer_md5_url: "https://static.tenable.com/marketing/{{ nessus_md5_file }}"
+nessus_download_dir: "/root/nessus"
+nessus_installer_path: "{{ nessus_download_dir }}/{{ nessus_installer_file }}"
+nessus_installer_md5_path: "{{ nessus_download_dir }}/{{ nessus_md5_file }}"
+nessus_installer_response_path: "{{ nessus_download_dir }}/response.varfile"
+nessus_user: "nessadmin"
+nessus_password: "nessadmin"
