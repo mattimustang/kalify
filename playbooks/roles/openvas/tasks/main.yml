@@ -1,0 +1,22 @@
+---
+- name: Installing OpenVAS
+  apt: name=openvas state=present
+
+- name: Setting up OpenVAS
+  command: openvas-setup
+  register: ovsetup
+
+#- name: Enabling OpenVAS Manager to start at boot
+#  command: update-rc.d openvas-manager enable
+
+#- name: Enabling OpenVAS Scanner to start at boot
+#  command: update-rc.d openvas-scanner enable
+#
+#- name: Enabling Greenbone Security Assistant to start at boot
+#  command: update-rc.d greenbone-security-assistant enable
+
+- name: OpenVAS Credentials
+  debug: msg="Login to https://127.0.0.1:9392 with username 'admin'. {{ ovsetup.stdout_lines[-1] }}"
+
+# TODO:
+# open ec2 security group port 9392

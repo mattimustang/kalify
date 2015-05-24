@@ -1,0 +1,8 @@
+- name: Install OpenVAS
+# ==================================
+  hosts: kalify-host
+  remote_user: admin
+  sudo: yes
+  
+  roles:
+    - openvas
