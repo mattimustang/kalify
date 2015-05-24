@@ -4,7 +4,7 @@ Kalify Nessus Role
 This role downloads and installs Nessus 6.3.4 to your Kali Linux server.
 The Nessus server is started automatically.
 
-If you are running an Amazon EC2 Kali Linux Instance you msut first allow TCP
+If you are running an Amazon EC2 Kali Linux Instance you must first allow TCP
 port 8834 in the Amazon EC2 Security Group assigned to the EC2 instance.
 
 A standalone Kali Linux server does not require any firewall rules.
