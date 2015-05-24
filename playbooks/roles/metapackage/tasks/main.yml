@@ -3,4 +3,4 @@
 - include: set-default-variables.yml
 
 - name: Installing Kali Linux metapackage
-  apt: name={{ kali_metapackage }}
+  apt: name={{ kali_metapackage }} state=present
