@@ -12,7 +12,7 @@
   command: awk "/{{ nessus_installer_file }}/ {print $2}" {{ nessus_installer_md5_path }} 
   register: good_md5
 
-- name: Get nessus Installer MD5
+- name: Calculate downloaed nessus installer MD5
   stat: path={{ nessus_installer_path }}
   register: dl_md5
 
@@ -30,11 +30,11 @@
   apt: deb="{{ nessus_installer_path }}" state=present
   when: nessus_check_deb.rc == 1
 
-- name: Enabling nessus to start at boot
-  command: update-rc.d nessusd enable
+- name: Copying working init script
+  copy: src=nessusd dest=/etc/init.d/nessusd owner=root group=root mode=0755
 
-- name: Starting nessus
-  command: service nessusd start
+- name: Enabling nessus to start at boot
+  service: name=nessusd state=started enabled=true
 
 # TODO:
-# * update ec2 security group to allow nessus web port TCP/8834 inbound
+# * update ec2 security group to allow nessus web port TCP/8834 in-bound
